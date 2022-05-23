@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0
+Transitional//EN">
+<!-- Author: Natasha Lucio -->
+<!-- Course: CSCI 3300-04 -->
+<!-- Program Date: 4-8-19 -->
+<!-- Description: Assignment 7 -->
+<html>
+<head>
+	<title>Calculating Pay</title>
+
+<script>
+<!-- if else/else if statement for calculating pay -->
+function paycheck()
+{ 
+	var rate = parseInt(prompt("Enter employee's hourly rate of pay:"," "));
+	var hours = parseInt(prompt("Enter number of hours worked this week:"," "));
+	var dependents = parseInt(prompt("Enter number of dependents:"," "));
+	
+	if (hours > 40)
+	{
+		var pay = (hours * rate) + ((hours - 40) * (rate * (1.5)));
+	}
+	else 
+	{
+		var pay = (hours * rate);
+	}
+	if (dependents > 6)
+	{
+		var pay = pay - (0.10 * pay);
+	}
+	else if (dependents >= 4)
+	{
+		var pay = pay - (0.15 * pay);
+	}
+	else if (dependents >= 1)
+	{
+		var pay = pay - (0.25 * pay);
+	}
+	else 
+	{
+		var pay = pay - (0.28 * pay);
+	}
+	alert("This employee earned: $" + pay.toFixed(2) + " this week.");
+}
+	
+	
+<!-- switch/case statement for color options -->
+function pageColor()
+{
+	var color=prompt("Enter color", " ");
+	switch (color)
+	{
+	case "red":
+		document.body.bgColor="red";
+		break;
+	case "green":
+		document.body.bgColor="green";
+		break;
+	case "pink":
+		document.body.bgColor="pink";
+		break;
+	case "yellow":
+		document.body.bgColor="yellow";
+		break;
+	case "lavender":
+		document.body.bgColor="lavender";
+		break;
+	default:
+		document.write("Invalid entry");
+	}
+}
+
+</script>
+<!-- css style -->
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+	color: blue;
+}
+</style>
+</head>
+<body>
+<table align="center" width="100%"><tr><td>
+
+<h1>Calculating Net Pay</h1>
+<p> This page will calculate an employee's net pay. Begin process
+by clicking on the 'BEGIN' button below.</p>
+<p> The user will be prompted for:</p>
+<ul>
+	<li> Employee's hourly rate of pay;</li>
+	<li> Number of hours worked that week; and </li>
+	<li> Number of dependents employee has.</li>
+</ul>
+<p> The user can change the background color selected from:</p>
+<ul>
+	<li> red </li>
+	<li> pink </li>
+	<li> green </li>
+	<li> yellow </li>
+	<li> lavender </li>
+</ul>
+	<br /><hr /><br />
+
+	<!-- clickable buttons -->
+<p><input type="button" id="paycheck" value="<<BEGIN>>" onclick="paycheck();"></p>
+<p><input type="button" id="color" value="Change Background Color" 
+onclick="pageColor();"></p>
+</td></tr></table></body>
+</html>
